@@ -8,6 +8,7 @@ namespace Akkounts.Domain
 
         public Balance(decimal balanceAmount)
         {
+            //amount
             Amount = balanceAmount;
         }
 

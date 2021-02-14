@@ -16,7 +16,7 @@ namespace Akkounts.Publisher
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
-            _restClient = new RestClient("http://localhost:5000");//https://akkounts.azurewebsites.net
+            _restClient = new RestClient("http://localhost:5000");//This was https://akkounts.azurewebsites.net/ This is from where the transactions are sent, but I can't make it work
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)

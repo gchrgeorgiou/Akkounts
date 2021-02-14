@@ -18,6 +18,7 @@ namespace Akkounts.Web
                 //     logging.AddConsole();
                 //     logging.AddDebug();
                 // })
+                //Logging clear
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
 }

@@ -11,6 +11,7 @@ namespace Akkounts.Web.ActorsMessages
 
         protected TransactionMessage(string account, decimal amount, DateTime startDate)
         {
+            //The transaction message
             Account = account;
             Amount = amount;
             StartDate = startDate;

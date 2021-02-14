@@ -14,6 +14,7 @@ namespace Akkounts.Publisher
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    //Worker
                     services.AddHostedService<Worker>();
                 });
     }

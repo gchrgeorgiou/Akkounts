@@ -14,7 +14,9 @@ namespace Akkounts.Web.Controllers
 
         public AccountController(AccountsActorProvider accountsActorProvider)
         {
+            //Accounts pool
             _accountsPool = accountsActorProvider();
+
         }
 
         [HttpPost]

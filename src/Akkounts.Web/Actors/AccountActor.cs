@@ -10,6 +10,7 @@ namespace Akkounts.Web.Actors
 {
     public class AccountActor : ReceiveActor, IWithUnboundedStash
     {
+     //stash him
         public IStash Stash { get; set; }
         private readonly IHubContext<NotificationHub> _hubContext;
         private readonly TransactionRepository _repository;

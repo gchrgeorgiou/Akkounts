@@ -10,7 +10,7 @@ namespace Akkounts.Publisher.Model
         {
             Amount = (decimal) _randomGen.Next(1, 99999) / 100;
             Type = (TransactionType) _randomGen.Next(2);
-            AccountNumber = $"ACC{_randomGen.Next(1, 100):000}"; //Only a few accounts
+            AccountNumber = $"ACC{_randomGen.Next(1, 100):000}"; //Only a few accounts and the prefic ACC
         }
     }
 }

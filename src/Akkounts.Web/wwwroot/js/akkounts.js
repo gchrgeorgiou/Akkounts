@@ -18,7 +18,7 @@
     constructor(name, size) {
         this.name = name;
         this.size = size;
-        this.color = this.#activeColor;//Bubble.#color();
+        this.color = this.#activeColor;//It was Bubble.#color();
     }
 
     setActive() {

@@ -7,6 +7,7 @@ namespace Akkounts.Web.Hubs
     {
         public async Task Notify(string user, string message)
         {
+            //Hubs
             await Clients.All.SendAsync("ReceiveAccountsTransactions", user, message);
         }
 

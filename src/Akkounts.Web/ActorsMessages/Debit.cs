@@ -8,6 +8,7 @@ namespace Akkounts.Web.ActorsMessages
 
         public Debit(string account, decimal amount, DateTime startDate) : base(account, amount, startDate)
         {
+            //This is the debit
         }
     }
 }

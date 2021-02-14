@@ -30,6 +30,7 @@ namespace Akkounts.Web.Actors
         private static IActorRef GetChildActor(string actorName)
         {
             var child = Context.Child(actorName);
+            //child loaded
             
             return child is Nobody
                 ? Context.ActorOf(Context.DI().Props<AccountActor>(), actorName)

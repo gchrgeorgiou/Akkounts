@@ -8,6 +8,7 @@ namespace Akkounts.Web.Domain
 
         public enum TransactionType
         {
+            //Type of transaction
             Debit,
             Credit
         }

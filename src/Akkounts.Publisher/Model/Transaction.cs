@@ -11,6 +11,7 @@ namespace Akkounts.Publisher.Model
 
         public Transaction()
         {
+            //Always set current timestamp
             StartDate = DateTime.Now;
         }
 

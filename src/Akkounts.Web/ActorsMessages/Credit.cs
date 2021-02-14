@@ -6,6 +6,7 @@ namespace Akkounts.Web.ActorsMessages
     {
         public Credit(string account, decimal amount, DateTime startDate) : base(account, amount, startDate)
         {
+            //This is the credit
         }
     }
 }

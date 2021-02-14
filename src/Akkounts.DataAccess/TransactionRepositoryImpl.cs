@@ -8,7 +8,9 @@ namespace Akkounts.DataAccess
 {
     public class TransactionRepositoryImpl : TransactionRepository
     {
+        //Dbname
         private const string DbName = "transactions.db";
+
 
         public void Add(Transaction t)
         {

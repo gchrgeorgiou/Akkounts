@@ -41,6 +41,7 @@ namespace Akkounts.Web
                 var resolver = new NinjectDependencyResolver(container, actorSystem);
 
                 return actorSystem;
+                //return ;
             });
 
             services.AddSingleton<AccountsActorProvider>(provider =>
