@@ -129,49 +129,63 @@ const plot = (items) => {
 
 //connect with server via signalr
 const connection = new signalR.HubConnectionBuilder().withUrl("/Hubs/notificationHub").build();
-connection.start().then(() => console.log("connected")).catch(err => console.error(err.toString()));
+connection.start().then(() => console.log("connected re pelle")).catch(err => console.error(err.toString()));
 
 const updateBubble = txnInfo => {
     let exists = bubbleDataState.some(e => e.name == txnInfo.account);
-    console.log(exists);
+    
     if (!exists) {
         bubbleDataState.push(new Bubble(txnInfo.account, txnInfo.balance));
+        console.log("Not Exists!")
         return;
     }
 
     let bubbleIndex = bubbleDataState.findIndex(e => e.name == txnInfo.account);
     bubbleDataState[bubbleIndex].size = txnInfo.balance;
 
-    if (txnInfo.txnAccepted)
+    if (txnInfo.txnAccepted) {
         bubbleDataState[bubbleIndex].setActive();
-    else
+        console.log("Set Active");
+    }
+    else {
         bubbleDataState[bubbleIndex].setRefused();
+        console.log("Set inctive");
+    }
 };
 
 const removeBubble = account => {
     //bubbleDataState = bubbleDataState.filter(o => o.name != account);
     let bubbleIndex = bubbleDataState.findIndex(e => e.name == account);
 
-    if (bubbleIndex >= 0)
+    if (bubbleIndex >= 0) {
         bubbleDataState[bubbleIndex].setInactive();
+        console.log("Set inctive remove");
+    }
 };
 
 //serializing server events
 const addBubbleEvents = Bacon.fromBinder(sink => {
     connection.on("ReceiveTxnInfo", txnInfo => sink(txnInfo));
+    console.log("Add Bubble");
 });
 
 const removeBubbleEvents = Bacon.fromBinder(sink => {
     connection.on("ReceiveIdleInfo", account => sink(account));
+    console.log("Remove Bubble");
 });
 
 const bubbleEvents = addBubbleEvents.merge(removeBubbleEvents);
 
+
 bubbleEvents.onValue(bubbleData => {
 
-    if (!bubbleData.account)
+    if (!bubbleData.account) {
+        console.log("No:");
         removeBubble(bubbleData);
-    else
-        updateBubble(bubbleData);   
+    }
+    else {
+        updateBubble(bubbleData);
+        console.log("Yes:");
         plot(bubbleDataState);
+    }
 });
