@@ -133,7 +133,7 @@ connection.start().then(() => console.log("connected")).catch(err => console.err
 
 const updateBubble = txnInfo => {
     let exists = bubbleDataState.some(e => e.name == txnInfo.account);
-
+    console.log(exists);
     if (!exists) {
         bubbleDataState.push(new Bubble(txnInfo.account, txnInfo.balance));
         return;
@@ -172,7 +172,6 @@ bubbleEvents.onValue(bubbleData => {
     if (!bubbleData.account)
         removeBubble(bubbleData);
     else
-        updateBubble(bubbleData);
-
-    plot(bubbleDataState);
+        updateBubble(bubbleData);   
+        plot(bubbleDataState);
 });
